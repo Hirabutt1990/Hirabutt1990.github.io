@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hira Butt, Ph.D. — Stem Cell Biology & Regenerative Medicine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --deep-teal: #1b4f6d;
+    --teal: #2a7ea8;
+    --teal-light: #4aa8cc;
+    --gold: #c8a951;
+    --gold-light: #e2c576;
+    --cream: #f7f4ef;
+    --white: #ffffff;
+    --gray-100: #f1eff8;
+    --gray-200: #e0ddd8;
+    --gray-400: #8b8880;
+    --gray-600: #5c5855;
+    --gray-800: #2d2b28;
+    --section-pad: 96px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.7;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13, 27, 42, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,169,81,0.25);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 600;
+    color: var(--white); letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--gold-light);
+    border-color: var(--gold);
+  }
+  .nav-links .nav-cta {
+    background: var(--teal); color: var(--white) !important;
+    border: none !important; padding: 8px 20px; border-radius: 4px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-links .nav-cta:hover { background: var(--teal-light) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 100px 40px 60px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-text { position: relative; }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 5px 14px; border-radius: 3px;
+    margin-bottom: 24px;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+    font-weight: 400;
+    display: block;
+    font-size: 0.85em;
+    margin-top: 4px;
+  }
+  .hero-title {
+    color: var(--teal-light);
+    font-size: 1rem; font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .hero-bio {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem; line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 0.85rem; font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .hero-link.primary {
+    background: var(--teal); color: var(--white);
+  }
+  .hero-link.primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+  .hero-link.secondary {
+    border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+  }
+  .hero-link.secondary:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 36px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .hero-card-header {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .hero-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--deep-teal));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+    border: 2px solid var(--gold);
+  }
+  .hero-inst { color: rgba(255,255,255,0.85); }
+  .hero-inst strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--white); }
+  .hero-inst span { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+
+  .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hero-stat {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px; padding: 16px;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.72rem; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-badge {
+    background: rgba(42,126,168,0.2);
+    border: 1px solid rgba(42,126,168,0.4);
+    color: var(--teal-light);
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px; border-radius: 3px;
+  }
+
+  /* hero decoration */
+  .hero-bg-shapes {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; overflow: hidden;
+  }
+  .hero-bg-shapes::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(42,126,168,0.12), transparent 70%);
+  }
+  .hero-bg-shapes::after {
+    content: '';
+    position: absolute; bottom: -100px; left: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,169,81,0.07), transparent 70%);
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: var(--section-pad) 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+  .section-desc {
+    font-size: 1rem; color: var(--gray-600);
+    max-width: 620px; line-height: 1.8;
+    margin-bottom: 48px;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 72px; align-items: start;
+  }
+  .about-text p { color: var(--gray-600); line-height: 1.85; margin-bottom: 20px; font-size: 0.97rem; }
+
+  .about-facts { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .fact-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 18px;
+    background: var(--white);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+  }
+  .fact-item strong { display: block; color: var(--navy); font-weight: 600; margin-bottom: 2px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .fact-item span { color: var(--gray-600); }
+  .fact-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+  .competencies-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    border: 1px solid var(--gray-200);
+  }
+  .competencies-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 20px;
+  }
+  .comp-block { margin-bottom: 20px; }
+  .comp-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--deep-teal);
+    margin-bottom: 8px;
+  }
+  .comp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .comp-tag {
+    background: rgba(27,79,109,0.07);
+    color: var(--deep-teal);
+    font-size: 0.72rem; font-weight: 500;
+    padding: 4px 10px; border-radius: 3px;
+    border: 1px solid rgba(27,79,109,0.15);
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--white); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(180deg, var(--teal), var(--gold), transparent);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 60px 1fr; gap: 24px;
+    margin-bottom: 48px; position: relative;
+  }
+  .timeline-dot {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--deep-teal);
+    border: 3px solid var(--teal-light);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-size: 1rem;
+    flex-shrink: 0;
+    position: relative; z-index: 1;
+    margin-top: 4px;
+  }
+  .timeline-content {
+    background: var(--cream);
+    border-radius: 10px; padding: 28px 32px;
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--teal);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .timeline-content:hover { transform: translateX(4px); box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+  .timeline-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+  .timeline-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--teal); font-weight: 500;
+    background: rgba(42,126,168,0.1); padding: 4px 12px; border-radius: 3px;
+    white-space: nowrap;
+  }
+  .timeline-inst { font-size: 0.88rem; color: var(--teal); font-weight: 500; margin-bottom: 14px; }
+  .timeline-content ul { list-style: none; padding: 0; }
+  .timeline-content ul li {
+    font-size: 0.9rem; color: var(--gray-600); line-height: 1.7;
+    padding: 5px 0 5px 18px; position: relative;
+  }
+  .timeline-content ul li::before {
+    content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 8px;
+  }
+  .timeline-project { font-size: 0.8rem; font-weight: 600; color: var(--deep-teal); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 14px; margin-bottom: 6px; }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--navy); }
+  #education .section-label { color: var(--gold); }
+  #education .section-title { color: var(--white); }
+
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .edu-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 32px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .edu-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold));
+  }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px;
+  }
+  .edu-medal {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(200,169,81,0.15); border: 1px solid rgba(200,169,81,0.3);
+    color: var(--gold-light); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .edu-school { font-size: 0.9rem; color: var(--teal-light); font-weight: 500; margin-bottom: 6px; }
+  .edu-year { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .edu-thesis { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; font-style: italic; }
+
+  /* ─── RESEARCH ─── */
+  #research { background: var(--cream); }
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .research-card {
+    background: var(--white);
+    border-radius: 12px; padding: 32px;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .research-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+  .research-card::after {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at top right, rgba(42,126,168,0.08), transparent 70%);
+  }
+  .research-icon { font-size: 2rem; margin-bottom: 16px; }
+  .research-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .research-desc { font-size: 0.9rem; color: var(--gray-600); line-height: 1.75; margin-bottom: 16px; }
+  .research-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .research-tag {
+    font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 3px 9px; border-radius: 3px;
+    background: rgba(42,126,168,0.08); color: var(--teal); border: 1px solid rgba(42,126,168,0.2);
+  }
+
+  /* ─── PUBLICATIONS ─── */
+  #publications { background: var(--white); }
+  .pub-filter { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+  .pub-btn {
+    padding: 8px 20px; border-radius: 4px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; cursor: pointer;
+    border: 1px solid var(--gray-200); background: var(--white); color: var(--gray-400);
+    transition: all 0.2s;
+  }
+  .pub-btn.active, .pub-btn:hover {
+    background: var(--teal); color: var(--white); border-color: var(--teal);
+  }
+  .pub-list { display: flex; flex-direction: column; gap: 20px; }
+  .pub-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px 28px;
+    border: 1px solid var(--gray-200); border-radius: 10px;
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .pub-item:hover { border-color: var(--teal); box-shadow: 0 4px 20px rgba(42,126,168,0.1); }
+  .pub-year {
+    font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 600;
+    color: var(--teal); min-width: 40px; padding-top: 3px;
+  }
+  .pub-content { flex: 1; }
+  .pub-badge {
+    display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; padding: 3px 9px; border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .pub-badge.first { background: rgba(200,169,81,0.15); color: #9a7a20; border: 1px solid rgba(200,169,81,0.4); }
+  .pub-badge.coauthor { background: rgba(42,126,168,0.08); color: var(--teal); border: 1px solid rgba(42,126,168,0.2); }
+  .pub-badge.preprint { background: rgba(180,80,40,0.08); color: #b45028; border: 1px solid rgba(180,80,40,0.2); }
+  .pub-title { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; line-height: 1.5; }
+  .pub-authors { font-size: 0.82rem; color: var(--gray-400); margin-bottom: 6px; line-height: 1.5; }
+  .pub-authors strong { color: var(--deep-teal); }
+  .pub-journal { font-size: 0.82rem; color: var(--teal); font-style: italic; }
+  .pub-link {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 10px;
+    font-size: 0.75rem; font-weight: 600; color: var(--teal); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .pub-link:hover { color: var(--deep-teal); }
+
+  .patent-box {
+    margin-top: 40px; padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(27,79,109,0.06), rgba(200,169,81,0.06));
+    border: 1px solid rgba(200,169,81,0.3); border-radius: 10px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .patent-icon { font-size: 2rem; flex-shrink: 0; }
+  .patent-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+  .patent-title { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .patent-meta { font-size: 0.82rem; color: var(--gray-600); }
+
+  /* ─── AWARDS ─── */
+  #awards { background: var(--navy); }
+  #awards .section-label { color: var(--gold); }
+  #awards .section-title { color: var(--white); }
+  .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .award-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 28px 24px;
+    transition: transform 0.2s, border-color 0.2s;
+    border-top: 3px solid transparent;
+  }
+  .award-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.15); }
+  .award-card.gold-a { border-top-color: var(--gold); }
+  .award-card.teal-a { border-top-color: var(--teal-light); }
+  .award-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+  .award-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+  .award-desc { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* ─── CERTIFICATIONS ─── */
+  #certifications { background: var(--cream); }
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .cert-group {
+    background: var(--white);
+    border-radius: 12px; padding: 28px;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .cert-group-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--gray-200);
+  }
+  .cert-group-icon { font-size: 1.5rem; }
+  .cert-group-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+  .cert-group-sub { font-size: 0.75rem; color: var(--gray-400); }
+  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .cert-list li {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    font-size: 0.84rem; gap: 12px;
+    padding: 8px 10px; border-radius: 5px;
+    transition: background 0.15s;
+  }
+  .cert-list li:hover { background: var(--cream); }
+  .cert-name { color: var(--gray-800); line-height: 1.45; flex: 1; }
+  .cert-date { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--teal); white-space: nowrap; padding-top: 2px; font-weight: 500; }
+
+  /* ─── PRESENTATIONS ─── */
+  #presentations { background: var(--white); }
+  .pres-section { margin-bottom: 44px; }
+  .pres-section-title {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .pres-section-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+  .pres-list { display: flex; flex-direction: column; gap: 16px; }
+  .pres-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px 24px; border-radius: 10px;
+    border: 1px solid var(--gray-200); background: var(--cream);
+    transition: border-color 0.2s;
+  }
+  .pres-item:hover { border-color: var(--teal); }
+  .pres-type-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--deep-teal); color: var(--white);
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 4px 10px; border-radius: 3px; white-space: nowrap;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .pres-type-badge.poster { background: rgba(42,126,168,0.12); color: var(--teal); border: 1px solid rgba(42,126,168,0.25); }
+  .pres-content {}
+  .pres-title { font-size: 0.92rem; font-weight: 600; color: var(--navy); margin-bottom: 5px; line-height: 1.5; }
+  .pres-meta { font-size: 0.8rem; color: var(--gray-400); line-height: 1.5; }
+  .pres-meta strong { color: var(--teal); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 18px 20px;
+    background: var(--white); border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: var(--gray-800);
+  }
+  .contact-item:hover { border-color: var(--teal); box-shadow: 0 4px 16px rgba(42,126,168,0.12); }
+  .contact-icon { font-size: 1.3rem; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(42,126,168,0.1); border-radius: 8px; }
+  .contact-item strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-400); margin-bottom: 3px; }
+  .contact-item span { font-size: 0.9rem; color: var(--gray-800); font-weight: 500; }
+
+  .ref-grid { display: flex; flex-direction: column; gap: 16px; }
+  .ref-card {
+    background: var(--white); border-radius: 8px; padding: 20px 24px;
+    border: 1px solid var(--gray-200);
+  }
+  .ref-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .ref-role { font-size: 0.82rem; color: var(--teal); font-weight: 500; margin-bottom: 2px; }
+  .ref-org { font-size: 0.8rem; color: var(--gray-600); margin-bottom: 8px; }
+  .ref-contact { font-size: 0.78rem; color: var(--gray-400); display: flex; flex-direction: column; gap: 2px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(200,169,81,0.2);
+  }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .footer-sub { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+
+  /* ─── SCROLL PROGRESS ─── */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    z-index: 200; width: 0%; transition: width 0.1s linear;
+  }
+
+  /* ─── BACK TO TOP ─── */
+  .back-top {
+    position: fixed; bottom: 32px; right: 32px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--deep-teal); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; cursor: pointer; z-index: 90;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    text-decoration: none;
+  }
+  .back-top.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .delay-3 { animation-delay: 0.3s; opacity: 0; }
+  .delay-4 { animation-delay: 0.4s; opacity: 0; }
+  .delay-5 { animation-delay: 0.5s; opacity: 0; }
+  .delay-6 { animation-delay: 0.6s; opacity: 0; }
+
+  /* ─── PUBMED BANNER ─── */
+  .pubmed-banner {
+    display: flex; align-items: center; gap: 20px;
+    background: linear-gradient(135deg, var(--deep-teal), var(--navy));
+    border-radius: 12px; padding: 24px 32px;
+    margin-bottom: 40px; color: var(--white);
+  }
+  .pubmed-icon { font-size: 2rem; }
+  .pubmed-text strong { display: block; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .pubmed-text span { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+  .pubmed-btn {
+    margin-left: auto; white-space: nowrap;
+    padding: 10px 24px; border-radius: 6px;
+    background: var(--gold); color: var(--navy);
+    font-weight: 700; font-size: 0.82rem;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .pubmed-btn:hover { background: var(--gold-light); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; width: 100%; background: var(--navy); padding: 20px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    section { padding: 64px 24px; }
+    .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-card { display: none; }
+    .edu-grid, .awards-grid, .cert-grid, .research-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; }
+    .back-top { bottom: 20px; right: 20px; }
+  }
+  @media (max-width: 640px) {
+    .hero-name { font-size: 2.4rem; }
+    .timeline-item { grid-template-columns: 48px 1fr; gap: 16px; }
+    .timeline-content { padding: 20px; }
+    .pub-item { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Hira <span>Butt</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-shapes"></div>
+  <div class="hero-grid" style="position:relative;z-index:1;">
+    <div class="hero-text">
+      <div class="hero-tag fade-up">Postdoctoral Researcher · Johns Hopkins University</div>
+      <h1 class="hero-name fade-up delay-1">
+        Hira Butt
+        <em>Ph.D.</em>
+      </h1>
+      <p class="hero-title fade-up delay-2">Stem Cell Biology · Regenerative Medicine · Translational Research</p>
+      <p class="hero-bio fade-up delay-3">
+        Productive and innovative researcher with over 12 years of experience at Johns Hopkins University, the University of Cambridge, and the University of the Punjab. Specializing in iPSC/hESC biology, CRISPR/Cas9 genome editing, disease modeling, and translational regenerative medicine.
+      </p>
+      <div class="hero-links fade-up delay-4">
+        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=hira%20butt&sort=date&page=1" target="_blank" class="hero-link primary">📄 PubMed Profile</a>
+        <a href="#research" class="hero-link secondary">🔬 My Research</a>
+        <a href="#contact" class="hero-link secondary">✉ Contact</a>
+      </div>
+    </div>
+    <div class="hero-card fade-up delay-3">
+      <div class="hero-card-header">
+        <div class="hero-avatar">HB</div>
+        <div class="hero-inst">
+          <strong>Wilmer Eye Institute</strong>
+          <span>Johns Hopkins University · Baltimore, MD</span>
+        </div>
+      </div>
+      <div class="hero-stat-grid">
+        <div class="hero-stat">
+          <div class="hero-stat-num">12+</div>
+          <div class="hero-stat-label">Years Research</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Publications</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3×</div>
+          <div class="hero-stat-label">Major Fellowships</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3×</div>
+          <div class="hero-stat-label">Gold Medals</div>
+        </div>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge">CRISPR/Cas9</span>
+        <span class="hero-badge">iPSC / hESC</span>
+        <span class="hero-badge">Glaucoma</span>
+        <span class="hero-badge">cGMP</span>
+        <span class="hero-badge">In Vivo Models</span>
+        <span class="hero-badge">Nanomedicine</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a Postdoctoral Fellow at the <strong>Wilmer Eye Institute, Johns Hopkins University</strong>, where I investigate stem cell–based and gene-editing approaches for ocular diseases including glaucoma and lens pathologies. My research bridges the gap between fundamental stem cell biology and clinical translation.</p>
+        <p>My work spans iPSC and hESC biology, CRISPR/Cas9-mediated genome editing, nanomedicine, biomaterials, and preclinical in vivo disease models. I have conducted research across three internationally recognized institutions on two continents — building a uniquely broad and deep skill set in regenerative medicine.</p>
+        <p>I am a recipient of the <strong>Maryland Stem Cell Research Fund (MSCRF) Postdoctoral Fellowship (2025)</strong>, the HEC Indigenous Ph.D. Fellowship, and the IRSIP International Research Fellowship (University of Cambridge, UK). My work has led to multiple first-author publications in high-impact journals, a co-authored patent, and international conference presentations.</p>
+        <div class="about-facts">
+          <div class="fact-item"><span class="fact-icon">📍</span><div><strong>Location</strong><span>Baltimore, Maryland, USA</span></div></div>
+          <div class="fact-item"><span class="fact-icon">🔬</span><div><strong>Current Position</strong><span>Postdoctoral Fellow — Wilmer Eye Institute, Johns Hopkins University (2023–Present)</span></div></div>
+          <div class="fact-item"><span class="fact-icon">📧</span><div><strong>Email</strong><span>hira.sarfrazbutt@gmail.com</span></div></div>
+          <div class="fact-item"><span class="fact-icon">📞</span><div><strong>Phone</strong><span>+1 (667) 213-9346</span></div></div>
+          <div class="fact-item"><span class="fact-icon">🌐</span><div><strong>Languages</strong><span>Urdu (Native) · English (Professional) · Punjabi (Professional)</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="competencies-card">
+          <h3>Core Competencies</h3>
+          <div class="comp-block">
+            <div class="comp-label">Cell & Tissue Culture</div>
+            <div class="comp-tags">
+              <span class="comp-tag">hESCs & iPSCs</span>
+              <span class="comp-tag">Naïve Pluripotency</span>
+              <span class="comp-tag">Directed Differentiation</span>
+              <span class="comp-tag">Organoids</span>
+              <span class="comp-tag">Cryopreservation</span>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-label">Genome Editing</div>
+            <div class="comp-tags">
+              <span class="comp-tag">CRISPR/Cas9 KO & KI</span>
+              <span class="comp-tag">sgRNA Design</span>
+              <span class="comp-tag">Electroporation</span>
+              <span class="comp-tag">Sanger Sequencing</span>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-label">Molecular Techniques</div>
+            <div class="comp-tags">
+              <span class="comp-tag">qPCR / RT-PCR</span>
+              <span class="comp-tag">Western Blotting</span>
+              <span class="comp-tag">2D-GE / 2D-DIGE</span>
+              <span class="comp-tag">Transcriptomics</span>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-label">In Vivo & Imaging</div>
+            <div class="comp-tags">
+              <span class="comp-tag">Rodent & NHP Models</span>
+              <span class="comp-tag">Confocal Microscopy</span>
+              <span class="comp-tag">OCT / ERG</span>
+              <span class="comp-tag">IHC / Histology</span>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-label">Biomaterials & Nano</div>
+            <div class="comp-tags">
+              <span class="comp-tag">Nanoparticle Synthesis</span>
+              <span class="comp-tag">Hydrogel Fabrication</span>
+              <span class="comp-tag">Amniotic Scaffolds</span>
+            </div>
+          </div>
+          <div class="comp-block">
+            <div class="comp-label">Leadership</div>
+            <div class="comp-tags">
+              <span class="comp-tag">cGMP Lab Operations</span>
+              <span class="comp-tag">IRB Compliance</span>
+              <span class="comp-tag">Mentorship</span>
+              <span class="comp-tag">Grant Writing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Career Path</p>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="section-divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot">🔭</div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Postdoctoral Fellow</span>
+            <span class="timeline-date">2023 – Present</span>
+          </div>
+          <div class="timeline-inst">Wilmer Eye Institute, Johns Hopkins University · Baltimore, Maryland, USA</div>
+          <div class="timeline-project">Project I: Glaucoma — Cell-Based & Gene-Editing Approaches</div>
+          <ul>
+            <li>Developed a two-step differentiation protocol for generating hESC-derived trabecular meshwork (TM) cells, benchmarked against primary TM cells and corneal endothelial controls.</li>
+            <li>Transcriptomic profiling and comparative analysis of differentiated TM cells to assess lineage specificity and functional similarity to native TM tissue.</li>
+            <li>Developed in vivo rabbit models (denuded TM and laser-induced TM injury) to evaluate cell integration and therapeutic potential.</li>
+            <li>Conducted magnetic nanoparticle labeling and physicochemical characterization; directed labeled cells to the iridocorneal angle for targeted delivery.</li>
+            <li>Designed and executed CRISPR/Cas9-based experiments for therapeutic intervention in primary congenital glaucoma.</li>
+          </ul>
+          <div class="timeline-project">Project II: Lens — Calpain-3 Proteolysis & Autophagosome Transport</div>
+          <ul>
+            <li>Proteomic profiling of FYCO1⁻/⁻ mouse lens fiber cells using 2D-GE and 2D-DIGE; analysis of LC3B, MST1, CAPN3 expression.</li>
+            <li>Generated and validated a knock-in LC3(T50A) human epithelial cell line via Sanger sequencing; characterized via flow cytometry.</li>
+            <li>Assessed retrograde autophagosome transport in HLE cells via nucleofection-mediated JIP1/RILP knockdown.</li>
+            <li>Co-authored manuscript on pluripotent stem cell–derived corneal endothelial cells, published in Translational Vision Science & Technology (2025).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">🏥</div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Laboratory In-Charge, cGMP Stem Cell & Genetics Facility</span>
+            <span class="timeline-date">2021 – 2023</span>
+          </div>
+          <div class="timeline-inst">Allama Iqbal Medical Research Centre (AIMRC), Jinnah Burn & Reconstructive Surgery Centre · Lahore, Pakistan</div>
+          <ul>
+            <li>Led a cGMP-compliant Stem Cell and Genetics Laboratory overseeing clinical-grade stem cell and regenerative medicine workflows.</li>
+            <li>Supervised, trained, and interviewed junior staff; ensured GMP compliance, aseptic technique, and safety standards.</li>
+            <li>Prepared, submitted, and managed IRB applications; coordinated internal and external audits with excellent evaluations.</li>
+            <li>Assisted the Director in manuscript peer review (Stem Cell Research & Therapy) and grant writing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">👁</div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Senior Research Fellow</span>
+            <span class="timeline-date">2020 – 2021</span>
+          </div>
+          <div class="timeline-inst">Allama Iqbal Medical Research Centre (AIMRC) · Lahore, Pakistan</div>
+          <ul>
+            <li>Contributed to clinical trial "Investigation of Therapeutic Efficacy of Umbilical Mesenchymal Stem Cells for Retinitis Pigmentosa" (ClinicalTrials.gov: NCT04763369).</li>
+            <li>Prepared clinical-grade stem cells; conducted patient follow-up and ERG data collection and analysis.</li>
+            <li>Performed quality control testing for bacterial and fungal contamination; facilitated patient recruitment for clinical trials.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">🇬🇧</div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">IRSIP Visiting Research Fellow</span>
+            <span class="timeline-date">2020</span>
+          </div>
+          <div class="timeline-inst">Wellcome-MRC Cambridge Stem Cell Institute, University of Cambridge · Cambridge, United Kingdom</div>
+          <ul>
+            <li>Investigated roles of candidate transcription factors in naïve stem cell self-renewal using CRISPR/Cas9, under mentorship of Prof. Austin Smith, Ph.D., FRS, FRSE.</li>
+            <li>Gained expertise in naïve pluripotent stem cell culture and functional validation assays.</li>
+            <li>Delivered oral presentation of project findings to institute faculty and researchers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">🧬</div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Research Fellow (Ph.D. Researcher)</span>
+            <span class="timeline-date">2015 – 2020</span>
+          </div>
+          <div class="timeline-inst">Centre of Excellence in Molecular Biology (CEMB), University of the Punjab · Lahore, Pakistan</div>
+          <ul>
+            <li>Isolated, cultured, and characterized umbilical cord, adipose-derived, and bone marrow mesenchymal stem cells; generated iPSCs from skin fibroblasts.</li>
+            <li>Developed and optimized biomaterial scaffolds (hydrogels, amniotic membranes) for cell delivery.</li>
+            <li>Established in vivo rat models (thermal burn, acid burn, diabetic wound) for regenerative medicine studies.</li>
+            <li>Led stem cell preconditioning studies to enhance cytoprotective responses under oxidative and thermal stress.</li>
+            <li>Contributed to peer-reviewed publications, patent filings, book chapters, and grant applications.</li>
+            <li>Designed and supervised research projects for M.Phil. and Ph.D. scholars; mentored interns and graduate researchers.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="section-divider" style="background:linear-gradient(90deg,var(--teal-light),var(--gold));"></div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Ph.D. in Molecular Biology</div>
+        <div class="edu-school">Centre of Excellence in Molecular Biology (CEMB)<br>University of the Punjab, Pakistan</div>
+        <div class="edu-year">2021</div>
+        <div class="edu-thesis"><em>Dissertation:</em> Skin Regeneration Potential of Antioxidant Primed Cells Carrier Constructs<br><br>Focus: stem cell preconditioning, antioxidant biology, in vitro/in vivo wound healing, biomaterial scaffolds</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">M.Sc. in Molecular Biology</div>
+        <div class="edu-medal">🥇 Gold Medalist — #1 in Class</div>
+        <div class="edu-school">Centre of Excellence in Molecular Biology (CEMB)<br>University of the Punjab, Pakistan</div>
+        <div class="edu-year">2015</div>
+        <div class="edu-thesis"><em>Thesis:</em> Role of Vitamin E Preconditioning of Human Skin-Derived Cells in Counteracting Thermal Stress<br><br><em>Awarded Gold Medal and University Prize</em></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">B.S. (Hons.) in Biochemistry</div>
+        <div class="edu-medal">🥇 Gold Medalist — #1 in Class</div>
+        <div class="edu-school">School of Biochemistry & Biotechnology<br>University of the Punjab, Pakistan</div>
+        <div class="edu-year">2013</div>
+        <div class="edu-thesis"><em>Project:</em> Optimization and Molecular Characterization of Oil-Degrading Bacterial Isolates<br><br><em>Awarded Gold Medal and University Prize</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <p class="section-label">What I Investigate</p>
+    <h2 class="section-title">Research Interests</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">My research focuses on harnessing the regenerative potential of stem cells and precision genome editing to develop transformative therapies for ocular and systemic diseases.</p>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="research-icon">👁️</div>
+        <div class="research-title">Glaucoma & Trabecular Meshwork Regeneration</div>
+        <div class="research-desc">Developing hESC-derived trabecular meshwork (TM) cells for cell replacement therapy in glaucoma. Integrating magnetic nanoparticle–guided targeted delivery and CRISPR/Cas9 correction of primary congenital glaucoma mutations.</div>
+        <div class="research-tags">
+          <span class="research-tag">hESC Differentiation</span>
+          <span class="research-tag">TM Cells</span>
+          <span class="research-tag">Nanoparticles</span>
+          <span class="research-tag">Rabbit Models</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">✂️</div>
+        <div class="research-title">CRISPR/Cas9 Gene Editing</div>
+        <div class="research-desc">Engineering precision genome corrections for inherited ocular diseases, including primary congenital glaucoma. Validating knock-in cell lines and investigating CRISPR-based therapeutic strategies in clinically relevant models.</div>
+        <div class="research-tags">
+          <span class="research-tag">CRISPR/Cas9</span>
+          <span class="research-tag">Knock-In / Knock-Out</span>
+          <span class="research-tag">sgRNA Design</span>
+          <span class="research-tag">Functional Validation</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">🔬</div>
+        <div class="research-title">iPSC / hESC Biology & Disease Modeling</div>
+        <div class="research-desc">Generating and characterizing patient-derived iPSCs for disease modeling and drug screening. Investigating pluripotency maintenance, naïve-to-primed transitions, and directed differentiation toward therapeutic cell types.</div>
+        <div class="research-tags">
+          <span class="research-tag">iPSCs</span>
+          <span class="research-tag">Naïve Pluripotency</span>
+          <span class="research-tag">Disease Modeling</span>
+          <span class="research-tag">Transcriptomics</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">🩹</div>
+        <div class="research-title">Wound Healing & Regenerative Medicine</div>
+        <div class="research-desc">Developing antioxidant-primed MSC therapies and biomaterial constructs for burn and diabetic wound healing. Investigating AKT/ERK signaling pathways and novel hydrogel/amniotic membrane scaffolds for enhanced skin regeneration.</div>
+        <div class="research-tags">
+          <span class="research-tag">MSC Preconditioning</span>
+          <span class="research-tag">Hydrogels</span>
+          <span class="research-tag">Diabetic Wound</span>
+          <span class="research-tag">Burn Models</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">💊</div>
+        <div class="research-title">Nanomedicine & Drug Delivery</div>
+        <div class="research-desc">Synthesizing and characterizing nanoparticles (zinc oxide, magnetic, oxygen-generating nanofibers) for targeted therapeutic delivery. Developing smart hydrogel systems for controlled drug release in regenerative applications.</div>
+        <div class="research-tags">
+          <span class="research-tag">Nanoparticle Synthesis</span>
+          <span class="research-tag">Drug Delivery</span>
+          <span class="research-tag">Hydrogel Systems</span>
+          <span class="research-tag">Angiogenesis</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">🧫</div>
+        <div class="research-title">Clinical Translation & cGMP Operations</div>
+        <div class="research-desc">Translating bench discoveries to clinical-grade stem cell therapies. Expertise in cGMP-compliant facility management, IRB protocol development, clinical trial support, and regulatory compliance for cellular therapies.</div>
+        <div class="research-tags">
+          <span class="research-tag">cGMP</span>
+          <span class="research-tag">Clinical Trials</span>
+          <span class="research-tag">IRB</span>
+          <span class="research-tag">Quality Control</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <p class="section-label">Scholarly Output</p>
+    <h2 class="section-title">Publications</h2>
+    <div class="section-divider"></div>
+
+    <div class="pubmed-banner">
+      <span class="pubmed-icon">📚</span>
+      <div class="pubmed-text">
+        <strong>Full Publication List on PubMed</strong>
+        <span>View and search complete, up-to-date list of peer-reviewed publications including citations and abstracts</span>
+      </div>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/?term=hira%20butt&sort=date&page=1" target="_blank" class="pubmed-btn">View on PubMed →</a>
+    </div>
+
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <span class="pub-year">2025</span>
+        <div class="pub-content">
+          <span class="pub-badge coauthor">Co-Author</span>
+          <div class="pub-title">Pluripotent stem cell–derived corneal endothelial cells in canines</div>
+          <div class="pub-authors">Ali M, <strong>Butt H</strong>, et al.</div>
+          <div class="pub-journal">Translational Vision Science & Technology, 2025</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">Under Review</span>
+        <div class="pub-content">
+          <span class="pub-badge preprint">Under Review</span>
+          <div class="pub-title">Generation of xeno- and feeder-free pluripotent stem cell–derived trabecular meshwork-like cells</div>
+          <div class="pub-authors"><strong>Butt H</strong>, Ali M, Khan SY, Foster J, Riazuddin SA*</div>
+          <div class="pub-journal">Submitted to Translational Vision Science & Technology</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">Under Review</span>
+        <div class="pub-content">
+          <span class="pub-badge preprint">Under Review</span>
+          <div class="pub-title">A missense mutation in GUCY2D underlying autosomal recessive Leber Congenital Amaurosis</div>
+          <div class="pub-authors">Irum B‡, Rauf B‡, <strong>Butt H‡</strong> (equal contribution), Haseeb A, et al.</div>
+          <div class="pub-journal">Submitted to Molecular Vision</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">Under Review</span>
+        <div class="pub-content">
+          <span class="pub-badge preprint">Under Review</span>
+          <div class="pub-title">Peters anomaly with congenital glaucoma lacking congenital corneal and lens phenotypes</div>
+          <div class="pub-authors">Rauf B‡, Irum B‡, <strong>Butt H‡</strong> (equal contribution), Khan SY, et al.</div>
+          <div class="pub-journal">Submitted to Scientific Reports</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2023</span>
+        <div class="pub-content">
+          <span class="pub-badge coauthor">Co-Author</span>
+          <div class="pub-title">Comparative evaluation of chemically and green synthesized zinc oxide nanoparticles: antioxidant, antimicrobial, cytotoxic and anticancer potential towards HepG2 cell line</div>
+          <div class="pub-authors">Ashraf H, Meer B, Iqbal J, Ali JS, Andleeb A, <strong>Butt H</strong>, et al.</div>
+          <div class="pub-journal">Journal of Nanostructure in Chemistry, 13(2):243–261</div>
+          <a href="https://link.springer.com/article/10.1007/s40097-021-00460-3" target="_blank" class="pub-link">🔗 View Article</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2022</span>
+        <div class="pub-content">
+          <span class="pub-badge coauthor">Co-Author</span>
+          <div class="pub-title">Novel stimuli-responsive pectin-PVP-functionalized clay-based smart hydrogels for drug delivery and controlled release application</div>
+          <div class="pub-authors">Rehmat S, Rizvi NB, Khan SU, ..., <strong>Butt H</strong>, Rizwan M</div>
+          <div class="pub-journal">Frontiers in Materials, 9:823545</div>
+          <a href="https://www.frontiersin.org/journals/materials/articles/10.3389/fmats.2022.823545/full" target="_blank" class="pub-link">🔗 View Article</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2021</span>
+        <div class="pub-content">
+          <span class="pub-badge coauthor">Co-Author</span>
+          <div class="pub-title">Curcumin preconditioning enhances the efficacy of adipose-derived mesenchymal stem cells to accelerate healing of burn wounds</div>
+          <div class="pub-authors">Azam M, Ghufran H, <strong>Butt H</strong>, Mehmood A, Ashfaq R, Ilyas AM, Ahmad MR, Riazuddin S</div>
+          <div class="pub-journal">Burns & Trauma, 9</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2020</span>
+        <div class="pub-content">
+          <span class="pub-badge first">First Author</span>
+          <div class="pub-title">Epigallocatechin-3-gallate protects Wharton's jelly derived mesenchymal stem cells against in vitro heat stress</div>
+          <div class="pub-authors"><strong>Butt H</strong>, Mehmood A, Ejaz A, Humayun S, Riazuddin S</div>
+          <div class="pub-journal">European Journal of Pharmacology, 872:172958</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2020</span>
+        <div class="pub-content">
+          <span class="pub-badge coauthor">Co-Author</span>
+          <div class="pub-title">Oxygen-generating polymeric nanofibers that stimulate angiogenesis and show efficient wound healing in a diabetic wound model</div>
+          <div class="pub-authors">Zehra M, Zubairi W, Hasan A, <strong>Butt H</strong>, et al.</div>
+          <div class="pub-journal">International Journal of Nanomedicine, 15:3511</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2019</span>
+        <div class="pub-content">
+          <span class="pub-badge first">First Author</span>
+          <div class="pub-title">Vitamin E preconditioning alleviates in vitro thermal stress in cultured human epidermal keratinocytes</div>
+          <div class="pub-authors"><strong>Butt H</strong>, Mehmood A, Ali M, Tasneem S, Tarar MN, Riazuddin S</div>
+          <div class="pub-journal">Life Sciences, 239:116972</div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-year">2017</span>
+        <div class="pub-content">
+          <span class="pub-badge first">First Author</span>
+          <div class="pub-title">Protective role of vitamin E preconditioning of human dermal fibroblasts against thermal stress in vitro</div>
+          <div class="pub-authors"><strong>Butt H</strong>, Mehmood A, Ali M, Tasneem S, Anjum MS, Tarar MN, Khan SN, Riazuddin S</div>
+          <div class="pub-journal">Life Sciences, 184:1–9</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="patent-box" style="margin-top:40px;">
+      <span class="patent-icon">⚖️</span>
+      <div>
+        <div class="patent-label">Patent Application</div>
+        <div class="patent-title">Production of Vitamin E Primed Fibroblasts Carrier Plasma Gel for Treatment of Diabetic Wounds</div>
+        <div class="patent-meta">Application No. 591/2020 · Intellectual Property Organization of Pakistan · Co-inventor</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-inner">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Grants, Fellowships & Honors</h2>
+    <div class="section-divider" style="background:linear-gradient(90deg,var(--gold),var(--teal-light));"></div>
+    <div class="awards-grid">
+      <div class="award-card gold-a">
+        <div class="award-year">2025</div>
+        <div class="award-name">Maryland Stem Cell Research Fund (MSCRF) Postdoctoral Fellowship</div>
+        <div class="award-desc">Competitive peer-reviewed state research grant — one of Maryland's premier funding programs for stem cell and regenerative medicine research</div>
+      </div>
+      <div class="award-card teal-a">
+        <div class="award-year">2020</div>
+        <div class="award-name">WHS Trainee Travel Award</div>
+        <div class="award-desc">Wound Healing Society — 32nd Annual Meeting / SAWC-Spring, San Diego, CA</div>
+      </div>
+      <div class="award-card teal-a">
+        <div class="award-year">2020</div>
+        <div class="award-name">IRSIP International Research Fellowship</div>
+        <div class="award-desc">Higher Education Commission of Pakistan — competitive international research training award for a fellowship at the University of Cambridge, UK</div>
+      </div>
+      <div class="award-card gold-a">
+        <div class="award-year">2015–2021</div>
+        <div class="award-name">HEC Indigenous Ph.D. Fellowship</div>
+        <div class="award-desc">Higher Education Commission of Pakistan — competitive doctoral funding award supporting full Ph.D. research training</div>
+      </div>
+      <div class="award-card gold-a">
+        <div class="award-year">2015</div>
+        <div class="award-name">Gold Medal & University Prize — M.Sc.</div>
+        <div class="award-desc">Ranked #1 in class, M.Sc. Molecular Biology, University of the Punjab — one of two Gold Medals awarded in academic career</div>
+      </div>
+      <div class="award-card gold-a">
+        <div class="award-year">2013</div>
+        <div class="award-name">Gold Medal & University Prize — B.S. (Hons.)</div>
+        <div class="award-desc">Ranked #1 in class, B.S. Biochemistry, University of the Punjab</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <p class="section-label">Professional Development</p>
+    <h2 class="section-title">Certifications & Training</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Comprehensive professional training completed at Johns Hopkins University and affiliated health system institutions, covering research ethics, compliance, safety, and laboratory operations.</p>
+
+    <div class="cert-grid">
+      <div class="cert-group">
+        <div class="cert-group-header">
+          <span class="cert-group-icon">🔬</span>
+          <div>
+            <div class="cert-group-title">Research Ethics & Compliance</div>
+            <div class="cert-group-sub">Johns Hopkins University & Medicine</div>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li><span class="cert-name">Research Security Training</span><span class="cert-date">Mar 2026</span></li>
+          <li><span class="cert-name">Conflict of Interest and Commitment (Overview)</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">SOM Researchers — CITI Program</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">Clinical Research Billing Orientation</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">Conflict of Interest and Commitment</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">SOM Annual Required Training 2025</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">Understanding Title VI: Rights and Responsibilities at JHU</span><span class="cert-date">Jun 2025</span></li>
+          <li><span class="cert-name">Ethical Oversight of Human Stem Cell Research</span><span class="cert-date">Jun 2024</span></li>
+          <li><span class="cert-name">Just Culture: Introduction for Employees</span><span class="cert-date">Jul 2023</span></li>
+          <li><span class="cert-name">Sexual Assault Prevention for Graduate Students</span><span class="cert-date">Jul 2023</span></li>
+          <li><span class="cert-name">Opioid Awareness</span><span class="cert-date">Jul 2023</span></li>
+          <li><span class="cert-name">Compliance Basics (2023 & 2024)</span><span class="cert-date">Recurring</span></li>
+        </ul>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-header">
+          <span class="cert-group-icon">🧪</span>
+          <div>
+            <div class="cert-group-title">Laboratory Safety & Animal Research</div>
+            <div class="cert-group-sub">Johns Hopkins University & Health System</div>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li><span class="cert-name">Animal Care and Use</span><span class="cert-date">Jun 2024</span></li>
+          <li><span class="cert-name">Working in the Rodent Vivarium</span><span class="cert-date">Jun 2024</span></li>
+          <li><span class="cert-name">Animal Exposure Surveillance Program (AESP)</span><span class="cert-date">May 2023</span></li>
+          <li><span class="cert-name">Fire, Hazard Communication and Construction Safety (2024)</span><span class="cert-date">Jun 2024</span></li>
+          <li><span class="cert-name">Hazard Communication (Instructor-Led)</span><span class="cert-date">Apr 2024</span></li>
+          <li><span class="cert-name">Fire Safety (Instructor-Led)</span><span class="cert-date">Apr 2024</span></li>
+          <li><span class="cert-name">Bloodborne Pathogens (Instructor-Led)</span><span class="cert-date">Apr 2024</span></li>
+          <li><span class="cert-name">eSirius Inventory and Billing</span><span class="cert-date">Apr 2023</span></li>
+          <li><span class="cert-name">eSirius Cage Cards and Barcoding Census</span><span class="cert-date">Apr 2023</span></li>
+        </ul>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-header">
+          <span class="cert-group-icon">🏥</span>
+          <div>
+            <div class="cert-group-title">Healthcare & Emergency Preparedness</div>
+            <div class="cert-group-sub">Johns Hopkins Health System</div>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li><span class="cert-name">Crisis Prevention Management and De-escalation (2023 & 2024)</span><span class="cert-date">Recurring</span></li>
+          <li><span class="cert-name">Prevention of Infectious Disease Spread (2023 & 2024)</span><span class="cert-date">Recurring</span></li>
+          <li><span class="cert-name">Emergency Preparedness (2023 & 2024)</span><span class="cert-date">Recurring</span></li>
+          <li><span class="cert-name">Preparing for an Active Assailant — Clinical & Non-Clinical (2023 & 2024)</span><span class="cert-date">Recurring</span></li>
+          <li><span class="cert-name">Disability Inclusion and Awareness</span><span class="cert-date">Jun 2024</span></li>
+          <li><span class="cert-name">Best Practices: Language Services (2023 & 2024)</span><span class="cert-date">Recurring</span></li>
+        </ul>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-header">
+          <span class="cert-group-icon">🌐</span>
+          <div>
+            <div class="cert-group-title">Technical & IT Training</div>
+            <div class="cert-group-sub">Johns Hopkins University</div>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li><span class="cert-name">Azure MFA: Phone Enrollment</span><span class="cert-date">Oct 2023</span></li>
+          <li><span class="cert-name">Flow Cytometry — BD LSR Fortessa (Compensation Tutorials)</span><span class="cert-date">2020</span></li>
+        </ul>
+        <div style="margin-top:20px; padding:16px; background:var(--cream); border-radius:8px; border:1px solid var(--gray-200);">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--deep-teal); margin-bottom:8px;">Institution Affiliations</div>
+          <div style="font-size:0.82rem; color:var(--gray-600); line-height:1.7;">
+            • Wilmer Eye Institute, Johns Hopkins University<br>
+            • Johns Hopkins Health System (JHHS)<br>
+            • Johns Hopkins Medicine (JHM)<br>
+            • University of Cambridge (Wellcome-MRC CSCI)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENTATIONS -->
+<section id="presentations">
+  <div class="section-inner">
+    <p class="section-label">Scientific Communication</p>
+    <h2 class="section-title">Presentations</h2>
+    <div class="section-divider"></div>
+
+    <div class="pres-section">
+      <div class="pres-section-title">🎤 Oral Presentations</div>
+      <div class="pres-list">
+        <div class="pres-item">
+          <span class="pres-type-badge">Oral</span>
+          <div class="pres-content">
+            <div class="pres-title">Roles of candidate transcription factors in naïve stem cell self-renewal and differentiation using CRISPR/Cas9 gene knockout methodology</div>
+            <div class="pres-meta"><strong>Wellcome-MRC Cambridge Stem Cell Institute</strong>, University of Cambridge, UK · 2020</div>
+          </div>
+        </div>
+        <div class="pres-item">
+          <span class="pres-type-badge">Oral</span>
+          <div class="pres-content">
+            <div class="pres-title">Role of Vitamin E preconditioning of human skin-derived cells in counteracting thermal stress</div>
+            <div class="pres-meta"><strong>Centre of Excellence in Molecular Biology</strong>, University of the Punjab, Lahore, Pakistan · 2015</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pres-section">
+      <div class="pres-section-title">📊 Poster Presentations</div>
+      <div class="pres-list">
+        <div class="pres-item">
+          <span class="pres-type-badge poster">Poster</span>
+          <div class="pres-content">
+            <div class="pres-title">Xeno-free and feeder-free generation of pluripotent stem cell-derived trabecular meshwork cells</div>
+            <div class="pres-meta"><strong>1st Annual Maryland Spring Stem Cell Symposium and Workshop</strong>, University of Maryland School of Medicine, Baltimore, MD · May 2024<br>Butt H, Ali M, Khan SY, Riazuddin SA.</div>
+          </div>
+        </div>
+        <div class="pres-item">
+          <span class="pres-type-badge poster">Poster</span>
+          <div class="pres-content">
+            <div class="pres-title">Epigallocatechin gallate confers protection against oxidative stress in human Wharton's jelly-derived mesenchymal stem cells</div>
+            <div class="pres-meta"><strong>International Conference at Punjab University (ICPU)</strong>, Lahore, Pakistan · Nov 2019<br><em>Abstract published in Wound Repair and Regeneration, WHS 2020</em></div>
+          </div>
+        </div>
+        <div class="pres-item">
+          <span class="pres-type-badge poster">Poster</span>
+          <div class="pres-content">
+            <div class="pres-title">N-Acetyl-L-Cysteine aided protection of stem cells against hyperglycemia</div>
+            <div class="pres-meta"><strong>14th International Symposium on Natural Products</strong>, HEJ Research Institute of Chemistry, Karachi University · Nov 2019<br>Ahmad W, Butt H, Farooq S, Mehmood A, Riazuddin S.</div>
+          </div>
+        </div>
+        <div class="pres-item">
+          <span class="pres-type-badge poster">Poster</span>
+          <div class="pres-content">
+            <div class="pres-title">Vitamin E renders culture-expanded keratinocytes and fibroblasts resistant to burn injury</div>
+            <div class="pres-meta"><strong>Tissue Engineering Part A</strong>, Vol. 22, pp. S82–S82 · 2016<br>Mehmood A, Butt H, Ali M, Tarar MN, Khan SN, Riazuddin S.</div>
+          </div>
+        </div>
+        <div class="pres-item">
+          <span class="pres-type-badge poster">Poster</span>
+          <div class="pres-content">
+            <div class="pres-title">Preconditioning of stem cells for the repair of burnt skin</div>
+            <div class="pres-meta"><strong>International Symposium on Advances in Molecular Biology of Plants and Health Sciences</strong>, CEMB, University of Punjab · Dec 2015<br>Mehmood A, Mehmood R, Afzal A, Butt H, Khan SN, Riazuddin S.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Contact & References</h2>
+    <div class="section-divider"></div>
+    <div class="contact-grid">
+      <div>
+        <p style="font-size:0.95rem; color:var(--gray-600); margin-bottom:28px; line-height:1.8;">I am open to postdoctoral positions, research scientist roles, and collaborative opportunities in stem cell biology, regenerative medicine, and translational research in academia and industry worldwide.</p>
+        <div class="contact-info">
+          <a href="mailto:hira.sarfrazbutt@gmail.com" class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div><strong>Email</strong><span>hira.sarfrazbutt@gmail.com</span></div>
+          </a>
+          <a href="tel:+16672139346" class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div><strong>Phone</strong><span>+1 (667) 213-9346</span></div>
+          </a>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div><strong>Location</strong><span>Baltimore, Maryland, USA</span></div>
+          </div>
+          <a href="https://www.hopkinsmedicine.org/wilmer" target="_blank" class="contact-item">
+            <span class="contact-icon">🏛️</span>
+            <div><strong>Institution</strong><span>Wilmer Eye Institute, Johns Hopkins University</span></div>
+          </a>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=hira%20butt&sort=date&page=1" target="_blank" class="contact-item">
+            <span class="contact-icon">📚</span>
+            <div><strong>PubMed Profile</strong><span>View all publications</span></div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:var(--navy); margin-bottom:20px;">References</p>
+        <div class="ref-grid">
+          <div class="ref-card">
+            <div class="ref-name">Amer Riazuddin, Ph.D.</div>
+            <div class="ref-role">Associate Professor</div>
+            <div class="ref-org">Wilmer Eye Institute, Johns Hopkins University · Baltimore, MD, USA</div>
+            <div class="ref-contact">
+              <span>✉ sriazud1@jh.edu</span>
+              <span>📞 +1 (301) 346-4655</span>
+            </div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-name">Azra Mehmood, Ph.D.</div>
+            <div class="ref-role">Associate Professor</div>
+            <div class="ref-org">Centre of Excellence in Molecular Biology, University of the Punjab · Lahore, Pakistan</div>
+            <div class="ref-contact">
+              <span>✉ azra.mehmood@hotmail.com</span>
+              <span>📞 +92-333-410-7008</span>
+            </div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-name">Austin Smith, Ph.D., FRS, FRSE</div>
+            <div class="ref-role">Director, Living Systems Institute</div>
+            <div class="ref-org">University of Exeter · Exeter, United Kingdom</div>
+            <div class="ref-contact">
+              <span>✉ austin.smith@exeter.ac.uk</span>
+              <span>📞 +44-20-3738-5408</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Hira Butt, Ph.D.</div>
+  <div class="footer-sub">Postdoctoral Fellow · Wilmer Eye Institute · Johns Hopkins University</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#awards">Awards</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="https://pubmed.ncbi.nlm.nih.gov/?term=hira%20butt&sort=date&page=1" target="_blank">PubMed</a>
+  </div>
+  <div class="footer-copy">© 2026 Hira Butt, Ph.D. · Baltimore, Maryland, USA</div>
+</footer>
+
+<a href="#hero" class="back-top" id="backTop">↑</a>
+
+<script>
+  // Scroll progress
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrolled / maxScroll) * 100;
+    document.getElementById('scrollProgress').style.width = progress + '%';
+    // Back to top
+    const bt = document.getElementById('backTop');
+    bt.classList.toggle('visible', scrolled > 400);
+    // Nav active
+    const sections = ['hero','about','experience','education','research','publications','awards','certifications','presentations','contact'];
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && scrolled >= el.offsetTop - 100) current = id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Mobile nav
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Intersection observer for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.timeline-content, .edu-card, .research-card, .award-card, .cert-group, .pub-item, .pres-item').forEach((el, i) => {
+          el.style.animation = `fadeUp 0.5s ease ${i * 0.07}s forwards`;
+          el.style.opacity = '0';
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
